@@ -103,6 +103,9 @@ li {
 .task-form input[type="text"] {
   width: 250px;
 }
+.task-form select {
+  width: 270px;
+}
 input {
   border-radius: 5px;
   border: 2px solid #eaeaea;

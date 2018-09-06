@@ -28,7 +28,7 @@
         <input v-on:keypress.enter="addNew" v-model="newDescription" type="text" id="description">
       </fieldset>
       <button v-on:click="addNew">Add a New task</button>
-      <span v-show="error" class="error">Oops! Tasks need a title and description</span>
+      <span v-show="error" class="error">Oops! Tasks need a title and a type</span>
     </div>
     <div class="sort-container">
       <select v-on:change="filterType">

@@ -22,6 +22,12 @@ const tasks = [
       description: 'Be able to sort cards by categories Dev, Design, Editor etc',
       type: 'Development',
       opened: false,
+    },
+    {
+      name: 'Color code cards by type',
+      description: 'Different color on cards depending on type',
+      type: 'Development',
+      opened: false,
     }
 ];
 
@@ -40,7 +46,7 @@ new Vue({
           task.opened = !task.opened;
       },
       addNew: function() {
-        if(!this.newName || !this.newDescription) {
+        if(!this.newName || !this.newType) {
           this.error = true;
         } else {
           this.tasks.push({
@@ -62,7 +68,7 @@ new Vue({
     computed: {
       uniqueItemsList: function (){
         const types = [];
-        this.tasks.forEach(function(task){
+        this.tasks.forEach(task => {
           if (!types.includes(task.type)){
             types.push(task.type);
           }
