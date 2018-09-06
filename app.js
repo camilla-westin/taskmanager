@@ -1,33 +1,37 @@
-  const tasks = [
+const tasks = [
     {
       name: 'Create vue.js base',
       description: 'Create a base to build upon.',
+      type: 'Development',
       opened: false,
     },
     {
       name: 'Save data',
       description: 'Connect to mongodb to save the data.',
+      type: 'Development',
       opened: false,
-
     },
     {
       name: 'Design cards',
       description: 'Design the cards to look pretty.',
+      type: 'Design',
       opened: false,
     },
     {
       name: 'Sorting by category',
       description: 'Be able to sort cards by categories Dev, Design, Editor etc',
+      type: 'Development',
       opened: false,
-    },
-  ];
+    }
+];
 
-  new Vue({
+new Vue({
     el: '#taskmanager',
     data: {
       tasks: tasks,
       newName: '',
       newDescription: '',
+      type: '',
       error: false
     },
     methods: {
@@ -47,6 +51,20 @@
           this.newDescription = '',
           this.error = false
         }
+      },
+      filterType: function() {
+        this.type = event.target.value;
+      }
+    },
+    computed: {
+      uniqueItemsList: function (){
+        const types = [];
+        this.tasks.forEach(function(task){
+          if (!types.includes(task.type)){
+            types.push(task.type);
+          }
+        });
+        return types;
       }
     }
-  });
+});

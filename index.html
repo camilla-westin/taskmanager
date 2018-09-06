@@ -13,21 +13,23 @@
     <h1>Simple task manager</h1>
 
     <div class="task-form">
-      <label for="name">Task name:</label><input v-model="newName" type="text" id="name">
-      <label for="description">Task description:</label><input v-on:keypress.enter="addNew" v-model="newDescription" type="text" id="description">
-
+      <label for="name">Name:</label><input v-model="newName" type="text" id="name">
+      <label for="description">Description:</label><input v-on:keypress.enter="addNew" v-model="newDescription" type="text" id="description">
       <button v-on:click="addNew">Add a New task</button>
       <span v-show="error" class="error">Oops! Tasks need a title and description</span>
     </div>
-
+    <div class="sort-container">
+      <select v-on:change="filterType">
+        <option value="">Sort by type</option>
+        <option v-for="task in uniqueItemsList">{{ task }}</option>
+      </select>
+    </div>
     <ul class="task-list">
-      <li class="task-item" v-on:click="toggleTask(task)" v-for="(task, index) in tasks">
-        <transition name="flip">
-          <p v-bind:key="task.opened" class="task">
-            {{ task.opened ? task.description : task.name }}
-              <span v-on:click="tasks.splice(index, 1)" class="delete-task">X</span>
-          </p>
-        </transition>
+      <li v-show="type === '' || type === task.type" class="task-item" v-for="(task, index) in tasks">
+          <h2 class="task-name">{{ task.name }}</h2>
+          <p class="task-description">{{ task.description }}</p>
+          <p class="task-type"> {{ task.type }}</p>
+          <span v-on:click="tasks.splice(index, 1)" class="delete-task">X</span>
       </li>
     </ul>
   </div>
