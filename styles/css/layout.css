@@ -6,6 +6,7 @@ ul {
   padding-left: 0;
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 li {
   list-style-type: none;
@@ -78,11 +79,29 @@ li {
 /* Form */
 .task-form {
   position: relative;
+  width: 435px;
+  background: #eee;
+  padding: 60px 20px;
+  margin: 0 auto 40px auto;
 }
-label {
+.task-form fieldset {
+  padding-bottom: 20px;
+  border: none;
+  display: inline-block;
+}
+.task-form label {
   font-weight: 400;
   color: #333;
   margin-right: 10px;
+  display: block;
+  text-align: left;
+  padding-bottom: 3px;
+}
+.task-form input {
+  display: block;
+}
+.task-form input[type="text"] {
+  width: 250px;
 }
 input {
   border-radius: 5px;
@@ -104,6 +123,10 @@ button {
 }
 button:hover {
   background-color: #70a66f;
+}
+select {
+  width: 200px;
+  height: 35px;
 }
 .error {
   margin-top: 10px;

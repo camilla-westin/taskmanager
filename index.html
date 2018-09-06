@@ -13,8 +13,20 @@
     <h1>Simple task manager</h1>
 
     <div class="task-form">
-      <label for="name">Name:</label><input v-model="newName" type="text" id="name">
-      <label for="description">Description:</label><input v-on:keypress.enter="addNew" v-model="newDescription" type="text" id="description">
+      <fieldset>
+        <label for="name">Name:</label>
+        <input v-model="newName" type="text" id="name">
+      </fieldset>
+      <fieldset>
+        <select v-model="newType" id="type">
+          <option value="">Choose type</option>
+          <option v-for="task in uniqueItemsList">{{ task }}</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <label for="description">Description:</label>
+        <input v-on:keypress.enter="addNew" v-model="newDescription" type="text" id="description">
+      </fieldset>
       <button v-on:click="addNew">Add a New task</button>
       <span v-show="error" class="error">Oops! Tasks need a title and description</span>
     </div>

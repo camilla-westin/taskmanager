@@ -32,6 +32,7 @@ new Vue({
       newName: '',
       newDescription: '',
       type: '',
+      newType: '',
       error: false
     },
     methods: {
@@ -45,10 +46,12 @@ new Vue({
           this.tasks.push({
             name: this.newName,
             description: this.newDescription,
+            type: this.newType,
             opened: false
           });
           this.newName = '',
           this.newDescription = '',
+          this.newType = '',
           this.error = false
         }
       },

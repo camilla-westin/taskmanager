@@ -7,6 +7,7 @@ body {
     padding-left: 0;
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
   }
 
   li {
@@ -91,15 +92,35 @@ body {
   }
 
   /* Form */
-  .task-form{
+  .task-form {
     position: relative;
-  }
+    width: 435px;
+    background: #eee;
+    padding: 60px 20px;
+    margin: 0 auto 40px auto;
 
+    fieldset {
+      padding-bottom: 20px;
+      border: none;
+      display: inline-block;
+    }
 
-  label{
-    font-weight: 400;
-    color: #333;
-    margin-right: 10px;
+    label{
+      font-weight: 400;
+      color: #333;
+      margin-right: 10px;
+      display: block;
+      text-align: left;
+      padding-bottom: 3px;
+    }
+
+    input {
+      display: block;
+
+      &[type="text"] {
+        width: 250px;
+      }
+    }
   }
 
   input{
@@ -124,6 +145,11 @@ body {
 
   button:hover{
     background-color: #70a66f;
+  }
+
+  select {
+    width: 200px;
+    height: 35px;
   }
 
   .error{
