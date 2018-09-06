@@ -13,18 +13,18 @@
     <h1>Simple task manager</h1>
 
     <div class="task-form">
-      <label for="tasktaskname">Task name:</label><input v-model="newTaskname" type="text" id="taskname">
-      <label for="taskdescription">Task description:</label><input v-on:keypress.enter="addNew" v-model="newTaskdescription" type="text" id="taskdescription">
+      <label for="name">Task name:</label><input v-model="newName" type="text" id="name">
+      <label for="description">Task description:</label><input v-on:keypress.enter="addNew" v-model="newDescription" type="text" id="description">
 
       <button v-on:click="addNew">Add a New task</button>
       <span v-show="error" class="error">Oops! Tasks need a title and description</span>
     </div>
 
     <ul class="task-list">
-      <li v-on:click="toggleTask(task)" v-for="(task, index) in tasks">
+      <li class="task-item" v-on:click="toggleTask(task)" v-for="(task, index) in tasks">
         <transition name="flip">
           <p v-bind:key="task.opened" class="task">
-            {{ task.opened ? task.taskdescription : task.taskname }}
+            {{ task.opened ? task.description : task.name }}
               <span v-on:click="tasks.splice(index, 1)" class="delete-task">X</span>
           </p>
         </transition>

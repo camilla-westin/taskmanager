@@ -1,23 +1,23 @@
-const tasks = [
+  const tasks = [
     {
-      taskname: 'The "First Computer Programmer"',
-      taskdescription: 'Ada Lovelace',
+      name: 'Create vue.js base',
+      description: 'Create a base to build upon.',
       opened: false,
     },
     {
-      taskname: 'Invented the "Clarke Calculator"',
-      taskdescription: 'Edith Clarke',
+      name: 'Save data',
+      description: 'Connect to mongodb to save the data.',
       opened: false,
 
     },
     {
-      taskname: 'Famous World War II Enigma code breaker',
-      taskdescription: 'Alan Turing',
+      name: 'Design cards',
+      description: 'Design the cards to look pretty.',
       opened: false,
     },
     {
-      taskname: 'Created satellite orbit analyzation software for NASA',
-      taskdescription: 'Dr. Evelyn Boyd Granville',
+      name: 'Sorting by category',
+      description: 'Be able to sort cards by categories Dev, Design, Editor etc',
       opened: false,
     },
   ];
@@ -26,8 +26,8 @@ const tasks = [
     el: '#taskmanager',
     data: {
       tasks: tasks,
-      newTaskname: '',
-      newTaskdescription: '',
+      newName: '',
+      newDescription: '',
       error: false
     },
     methods: {
@@ -35,16 +35,16 @@ const tasks = [
           task.opened = !task.opened;
       },
       addNew: function() {
-        if(!this.newTaskname || !this.newTaskdescription) {
+        if(!this.newName || !this.newDescription) {
           this.error = true;
         } else {
           this.tasks.push({
-            taskname: this.newTaskname,
-            taskdescription: this.newTaskdescription,
+            name: this.newName,
+            description: this.newDescription,
             opened: false
           });
-          this.newTaskname = '',
-          this.newTaskdescription = '',
+          this.newName = '',
+          this.newDescription = '',
           this.error = false
         }
       }

@@ -36,26 +36,11 @@ li {
   box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, 0.5);
   will-change: transform;
 }
-li:hover {
+.task-item:hover {
   transform: scale(1.1);
 }
-li:nth-child(-n+3) .task {
-  background-color: #e65f51;
-}
-li:nth-child(2n+1) .task {
-  background-color: #a17de9;
-}
-li:nth-child(4n) .task {
-  background-color: #feca34;
-}
-li:nth-child(5n-2) .task {
-  background-color: #51aae5;
-}
-li:nth-child(4n+4) .task {
-  background-color: #feca34;
-}
-li:nth-child(-7n+7) .task {
-  background-color: #e46055;
+.task {
+  background: #222;
 }
 .delete-task {
   position: absolute;
