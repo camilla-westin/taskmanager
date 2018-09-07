@@ -1,6 +1,10 @@
 body {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  background: #edeff0;
+}
+a {
+  color: #47B784;
 }
 ul {
   padding-left: 0;
@@ -17,31 +21,74 @@ li {
   max-width: 100%;
   padding: 20px;
 }
+.task-list {
+  display: flex;
+}
 .task-item {
   display: block;
-  background: #222;
-  width: 150px;
-  height: 175px;
-  padding: 80px 50px;
-  border-radius: 7px;
-  margin: 5px;
-  text-align: center;
+  background: #fff;
+  width: 28%;
+  min-height: 250px;
+  height: auto;
+  border-radius: 0 0 4px 4px;
+  margin: 1.2%;
+  text-align: left;
   line-height: 27px;
   cursor: pointer;
   position: relative;
-  color: #fff;
+  color: #4b5658;
   font-weight: 600;
   font-size: 20px;
-  -webkit-box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, 0.5);
-  -moz-box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, 0.5);
-  box-shadow: 9px 10px 22px -8px rgba(209, 193, 209, 0.5);
+  padding: 0;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.06);
   will-change: transform;
+}
+.task-item .task-item-head {
+  background: #36495D;
+  color: white;
+  text-align: left;
+  border-radius: 4px 4px 0 0;
+  padding: 15px 0 15px 20px;
+}
+.task-item .task-item-content {
+  padding: 0 20px;
+}
+.task-item .edit-icon {
+  background: url('../../assets/edit.svg');
+  background-size: 17px;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  right: 41px;
+  top: 22px;
+  transition: opacity 0.2s ease-in;
+}
+.task-item .edit-icon:hover,
+.task-item .edit-icon:focus,
+.task-item .edit-icon:active {
+  opacity: 0.6;
+}
+.task-item .delete-icon {
+  background: url('../../assets/delete.svg');
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  transition: opacity 0.2s ease-in;
+}
+.task-item .delete-icon:hover,
+.task-item .delete-icon:focus,
+.task-item .delete-icon:active {
+  opacity: 0.6;
 }
 .task-item:hover {
   transform: scale(1.1);
 }
 .task-name {
   font-size: 23px;
+  margin: 30px 0 15px 0;
 }
 .task-description {
   font-weight: 300;
@@ -56,14 +103,11 @@ li {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 10px 15px;
-  opacity: 0.4;
   transition: all 0.5s ease;
 }
 .delete-task:hover,
 .error {
   opacity: 1;
-  transform: rotate(360deg);
 }
 .flip-enter-active {
   transition: all 0.4s ease;

@@ -13,11 +13,17 @@
       </div> -->
       <ul class="task-list">
         <li class="task-item" v-for="task in tasks" :key="task">
+          <div class="task-item-head">
+            <span class="task-type"> {{ task.type }}</span>
+            <router-link v-bind:to="{ name: 'EditTask', params: { id: task._id } }">
+              <span class="edit-icon"></span>
+            </router-link>
+          </div>
+          <div class="task-item-content">
             <h2 class="task-name">{{ task.title }}</h2>
             <p class="task-description">{{ task.description }}</p>
-            <p class="task-type"> {{ task.type }}</p>
-            <router-link v-bind:to="{ name: 'EditTask', params: { id: task._id } }">Edit</router-link>
-            <a href="#" @click="deleteTask(task._id)" class="delete-task">X</a>
+          </div>
+            <a href="#" @click="deleteTask(task._id)" class="delete-task"><span class="delete-icon"></span></a>
         </li>
       </ul>
     </div>
@@ -54,27 +60,7 @@ export default {
 }
 </script>
 <style type="text/css">
-.table-wrap {
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
-}
-table th, table tr {
-  text-align: left;
-}
-table thead {
-  background: #f2f2f2;
-}
-table tr td {
-  padding: 10px;
-}
-table tr:nth-child(odd) {
-  background: #f2f2f2;
-}
-table tr:nth-child(1) {
-  background: #4d7ef7;
-  color: #fff;
-}
+
 a {
   color: #4d7ef7;
   text-decoration: none;

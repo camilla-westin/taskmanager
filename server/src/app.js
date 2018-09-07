@@ -58,7 +58,7 @@ app.post('/tasks', (req, res) => {
 })
 
 // Fetch single post
-app.get('/task/:id', (req, res) => {
+app.get('/tasks/:id', (req, res) => {
   var db = req.db;
   Task.findById(req.params.id, 'title description type', function (error, task) {
     if (error) { console.error(error); }
