@@ -1,9 +1,9 @@
 <template>
   <div class="tasks">
-    <h1>tasks</h1>
-    <div v-if="tasks.length > 0" class="table-wrap">
+    <h1>Simple task manager</h1>
+    <div v-if="tasks.length > 0" class="tasks-wrap">
       <div>
-        <router-link v-bind:to="{ name: 'NewTask' }" class="">Add task</router-link>
+        <router-link v-bind:to="{ name: 'NewTask' }" class="btn">Add task <span class="add-icon"></span></router-link>
       </div>
       <!-- <div class="sort-container">
         <select v-on:change="filterType">

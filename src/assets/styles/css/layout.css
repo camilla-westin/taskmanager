@@ -6,6 +6,21 @@ body {
 a {
   color: #47B784;
 }
+.btn {
+  background: #47B784;
+  border-radius: 7px;
+  padding: 10px 20px;
+  color: #f2f2f2;
+  font-weight: 600;
+  padding: 10px 45px 10px 20px;
+  position: relative;
+  transition: background 0.2s ease-in;
+}
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background: #348e64;
+}
 ul {
   padding-left: 0;
   display: flex;
@@ -20,6 +35,9 @@ li {
 .container {
   max-width: 100%;
   padding: 20px;
+}
+.tasks-wrap {
+  padding-top: 50px;
 }
 .task-list {
   display: flex;
@@ -82,6 +100,15 @@ li {
 .task-item .delete-icon:focus,
 .task-item .delete-icon:active {
   opacity: 0.6;
+}
+.add-icon {
+  background: url('../../assets/add.svg');
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
 }
 .task-item:hover {
   transform: scale(1.1);
