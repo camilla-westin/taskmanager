@@ -31,49 +31,49 @@ const tasks = [
     }
 ];
 
-new Vue({
-    el: '#taskmanager',
-    data: {
-      tasks: tasks,
-      newName: '',
-      newDescription: '',
-      type: '',
-      newType: '',
-      error: false
-    },
-    methods: {
-      toggleTask: function(task){
-          task.opened = !task.opened;
-      },
-      addNew: function() {
-        if(!this.newName || !this.newType) {
-          this.error = true;
-        } else {
-          this.tasks.push({
-            name: this.newName,
-            description: this.newDescription,
-            type: this.newType,
-            opened: false
-          });
-          this.newName = '',
-          this.newDescription = '',
-          this.newType = '',
-          this.error = false
-        }
-      },
-      filterType: function() {
-        this.type = event.target.value;
-      }
-    },
-    computed: {
-      uniqueItemsList: function (){
-        const types = [];
-        this.tasks.forEach(task => {
-          if (!types.includes(task.type)){
-            types.push(task.type);
-          }
-        });
-        return types;
-      }
-    }
-});
+// new Vue({
+//     el: '#taskmanager',
+//     data: {
+//       tasks: tasks,
+//       newName: '',
+//       newDescription: '',
+//       type: '',
+//       newType: '',
+//       error: false
+//     },
+//     methods: {
+//       toggleTask: function(task){
+//           task.opened = !task.opened;
+//       },
+//       addNew: function() {
+//         if(!this.newName || !this.newType) {
+//           this.error = true;
+//         } else {
+//           this.tasks.push({
+//             name: this.newName,
+//             description: this.newDescription,
+//             type: this.newType,
+//             opened: false
+//           });
+//           this.newName = '',
+//           this.newDescription = '',
+//           this.newType = '',
+//           this.error = false
+//         }
+//       },
+//       filterType: function() {
+//         this.type = event.target.value;
+//       }
+//     },
+//     computed: {
+//       uniqueItemsList: function (){
+//         const types = [];
+//         this.tasks.forEach(task => {
+//           if (!types.includes(task.type)){
+//             types.push(task.type);
+//           }
+//         });
+//         return types;
+//       }
+//     }
+// });

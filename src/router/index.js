@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Tasks from '@/components/Tasks'
 import NewTask from '@/components/NewTask'
 import EditTask from '@/components/EditTask'
@@ -12,11 +11,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/tasks',
       name: 'Tasks',
       component: Tasks
     },

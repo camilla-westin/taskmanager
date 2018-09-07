@@ -9,6 +9,15 @@
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
         <div>
+          <select v-model="type" id="type">
+            <option value="">Choose type</option>
+            <option value="Development">Development</option>
+            <option value="Design">Design</option>
+            <option value="Editorial">Editorial</option>
+            <option value="Research">Research</option>
+          </select>
+        </div>
+        <div>
           <button class="app_post_btn" @click="addTask">Add</button>
         </div>
       </div>
@@ -22,14 +31,16 @@ export default {
   data () {
     return {
       title: '',
-      description: ''
+      description: '',
+      type: ''
     }
   },
   methods: {
     async addTask () {
       await TasksService.addTask({
         title: this.title,
-        description: this.description
+        description: this.description,
+        type: this.type
       })
       this.$router.push({ name: 'Tasks' })
     }

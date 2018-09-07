@@ -8,6 +8,13 @@
         <div>
           <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
         </div>
+        <select v-model="type" id="type">
+          <option value="">Choose type</option>
+          <option value="Development">Development</option>
+          <option value="Design">Design</option>
+          <option value="Editorial">Editorial</option>
+          <option value="Research">Research</option>
+        </select>
         <div>
           <button class="app_post_btn" @click="updateTask">Update</button>
         </div>
@@ -22,7 +29,8 @@ export default {
   data () {
     return {
       title: '',
-      description: ''
+      description: '',
+      type: ''
     }
   },
   mounted () {
@@ -35,12 +43,14 @@ export default {
       })
       this.title = response.data.title
       this.description = response.data.description
+      this.type = response.data.type
     },
     async updateTask () {
       await TasksService.updateTask({
         id: this.$route.params.id,
         title: this.title,
-        description: this.description
+        description: this.description,
+        type: this.type
       })
       this.$router.push({ name: 'Tasks' })
     }
