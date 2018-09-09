@@ -6,13 +6,19 @@
         <router-link v-bind:to="{ name: 'NewTask' }" class="btn">Add task <span class="add-icon"></span></router-link>
       </div>
       <div class="sort-container">
+        <label for="sort">Sort by:</label>
         <select v-on:change="filterType">
-          <option value="">Sort by type</option>
+          <option value="">All</option>
           <option v-for="task in uniqueItemsList" :key="task.type">{{ task }}</option>
         </select>
       </div>
       <ul class="task-list">
-        <li v-show="type === '' || type === task.type" class="task-item" v-for="task in tasks" :key="task.index">
+        <li v-show="type === '' || type === task.type"
+            v-if="task.status !== 'Done' && task.status !== 'Ready for deploy'"
+            v-bind:class="[ task.type ]"
+            class="task-item"
+            v-for="task in tasks"
+            :key="task.index">
           <div class="task-item-head">
             <span class="task-type"> {{ task.type }}</span>
             <router-link v-bind:to="{ name: 'EditTask', params: { id: task._id } }">
@@ -22,6 +28,43 @@
           <div class="task-item-content">
             <h2 class="task-name">{{ task.title }}</h2>
             <p class="task-description">{{ task.description }}</p>
+            <span class="task-status">Status: {{ task.status }}</span>
+          </div>
+            <a href="#" @click="deleteTask(task._id)" class="delete-task"><span class="delete-icon"></span></a>
+        </li>
+      </ul>
+      <h2>Ready for deploy</h2>
+      <hr />
+      <ul class="task-list">
+        <li v-if="task.status === 'Ready for deploy'" v-show="type === '' || type === task.type" v-bind:class="[ task.type ]" class="task-item" v-for="task in tasks" :key="task.index">
+          <div class="task-item-head">
+            <span class="task-type"> {{ task.type }}</span>
+            <router-link v-bind:to="{ name: 'EditTask', params: { id: task._id } }">
+              <span class="edit-icon"></span>
+            </router-link>
+          </div>
+          <div class="task-item-content">
+            <h2 class="task-name">{{ task.title }}</h2>
+            <p class="task-description">{{ task.description }}</p>
+            <span class="task-status">Status: {{ task.status }}</span>
+          </div>
+            <a href="#" @click="deleteTask(task._id)" class="delete-task"><span class="delete-icon"></span></a>
+        </li>
+      </ul>
+      <h2>Done</h2>
+      <hr />
+      <ul class="task-list">
+        <li v-if="task.status === 'Done'" v-show="type === '' || type === task.type" v-bind:class="[ task.type ]" class="task-item" v-for="task in tasks" :key="task.index">
+          <div class="task-item-head">
+            <span class="task-type"> {{ task.type }}</span>
+            <router-link v-bind:to="{ name: 'EditTask', params: { id: task._id } }">
+              <span class="edit-icon"></span>
+            </router-link>
+          </div>
+          <div class="task-item-content">
+            <h2 class="task-name">{{ task.title }}</h2>
+            <p class="task-description">{{ task.description }}</p>
+            <span class="task-status">Status: {{ task.status }}</span>
           </div>
             <a href="#" @click="deleteTask(task._id)" class="delete-task"><span class="delete-icon"></span></a>
         </li>

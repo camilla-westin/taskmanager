@@ -50,7 +50,7 @@ li {
 }
 .task-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 .task-item {
   display: block;
@@ -111,6 +111,18 @@ li {
 .task-item .delete-icon:active {
   opacity: 0.6;
 }
+.task-item.Research .task-item-head {
+  background: #7612a8;
+}
+.task-item.Development .task-item-head {
+  background: #0f64aa;
+}
+.task-item.Design .task-item-head {
+  background: #ff7b0f;
+}
+.task-item.Editorial .task-item-head {
+  background: #36495D;
+}
 .add-icon {
   background: url('../../assets/add.svg');
   background-size: 20px;
@@ -133,8 +145,11 @@ li {
   line-height: 1.3;
 }
 .task-type {
-  color: #ddd;
+  color: #fff;
   font-size: 18px;
+}
+.task-status {
+  font-size: 14px;
 }
 .delete-task {
   position: absolute;
@@ -150,6 +165,10 @@ li {
   display: flex;
   justify-content: flex-end;
   padding-right: 15px;
+}
+.sort-container label {
+  font-weight: 600;
+  padding: 6px;
 }
 /* Form */
 .task-form {

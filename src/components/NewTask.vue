@@ -18,6 +18,16 @@
           </select>
         </div>
         <div>
+          <select v-model="status" id="status">
+            <option value="">Choose status</option>
+            <option value="To do">To do</option>
+            <option value="In progress">In progress</option>
+            <option value="Ready for test">Ready for test</option>
+            <option value="Ready for deploy">Ready for deploy</option>
+            <option value="Done">Done</option>
+          </select>
+        </div>
+        <div>
           <button class="app_post_btn" @click="addTask">Add</button>
         </div>
       </div>
@@ -32,7 +42,8 @@ export default {
     return {
       title: '',
       description: '',
-      type: ''
+      type: '',
+      status: ''
     }
   },
   methods: {
@@ -40,7 +51,8 @@ export default {
       await TasksService.addTask({
         title: this.title,
         description: this.description,
-        type: this.type
+        type: this.type,
+        status: this.status
       })
       this.$router.push({ name: 'Tasks' })
     }

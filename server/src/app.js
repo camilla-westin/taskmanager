@@ -24,7 +24,7 @@ var Task = require("../models/task");
 
 // Fetch all posts
 app.get('/tasks', (req, res) => {
-  Task.find({}, 'title description type', function (error, tasks) {
+  Task.find({}, 'title description type status', function (error, tasks) {
     if (error) { console.error(error); }
     res.send({
       tasks: tasks
@@ -38,10 +38,12 @@ app.post('/tasks', (req, res) => {
   var title = req.body.title;
   var description = req.body.description;
   var type = req.body.type;
+  var status = req.body.status;
   var new_task = new Task({
     title: title,
     description: description,
-    type: type
+    type: type,
+    status: status
   })
 
   new_task.save(function (error) {
@@ -58,7 +60,7 @@ app.post('/tasks', (req, res) => {
 // Fetch single post
 app.get('/tasks/:id', (req, res) => {
   var db = req.db;
-  Task.findById(req.params.id, 'title description type', function (error, task) {
+  Task.findById(req.params.id, 'title description type status', function (error, task) {
     if (error) { console.error(error); }
     res.send(task)
   })
@@ -67,12 +69,13 @@ app.get('/tasks/:id', (req, res) => {
 // Update a post
 app.put('/tasks/:id', (req, res) => {
   var db = req.db;
-  Task.findById(req.params.id, 'title description type', function (error, task) {
+  Task.findById(req.params.id, 'title description type status', function (error, task) {
     if (error) { console.error(error); }
 
     task.title = req.body.title
     task.description = req.body.description
     task.type = req.body.type
+    task.status = req.body.status
     task.save(function (error) {
       if (error) {
         console.log(error)

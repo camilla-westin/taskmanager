@@ -15,6 +15,14 @@
           <option value="Editorial">Editorial</option>
           <option value="Research">Research</option>
         </select>
+        <select v-model="status" id="status">
+          <option value="">Choose status</option>
+          <option value="To do">To do</option>
+          <option value="In progress">In progress</option>
+          <option value="Ready for test">Ready for test</option>
+          <option value="Ready for deploy">Ready for deploy</option>
+          <option value="Done">Done</option>
+        </select>
         <div>
           <button class="app_post_btn" @click="updateTask">Update</button>
         </div>
@@ -30,7 +38,8 @@ export default {
     return {
       title: '',
       description: '',
-      type: ''
+      type: '',
+      status: ''
     }
   },
   mounted () {
@@ -44,13 +53,15 @@ export default {
       this.title = response.data.title
       this.description = response.data.description
       this.type = response.data.type
+      this.status = response.data.status
     },
     async updateTask () {
       await TasksService.updateTask({
         id: this.$route.params.id,
         title: this.title,
         description: this.description,
-        type: this.type
+        type: this.type,
+        status: this.status
       })
       this.$router.push({ name: 'Tasks' })
     }
