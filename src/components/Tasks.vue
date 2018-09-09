@@ -5,14 +5,14 @@
       <div>
         <router-link v-bind:to="{ name: 'NewTask' }" class="btn">Add task <span class="add-icon"></span></router-link>
       </div>
-      <!-- <div class="sort-container">
+      <div class="sort-container">
         <select v-on:change="filterType">
           <option value="">Sort by type</option>
-          <option v-for="task in tasks" :key="task.type">{{ task.type }}</option>
+          <option v-for="task in uniqueItemsList" :key="task.type">{{ task }}</option>
         </select>
-      </div> -->
+      </div>
       <ul class="task-list">
-        <li class="task-item" v-for="task in tasks" :key="task">
+        <li v-show="type === '' || type === task.type" class="task-item" v-for="task in tasks" :key="task.index">
           <div class="task-item-head">
             <span class="task-type"> {{ task.type }}</span>
             <router-link v-bind:to="{ name: 'EditTask', params: { id: task._id } }">
@@ -40,7 +40,8 @@ export default {
   name: 'tasks',
   data () {
     return {
-      tasks: []
+      tasks: [],
+      type: ''
     }
   },
   mounted () {
@@ -55,6 +56,20 @@ export default {
       await TasksService.deleteTask(id)
       this.getTasks()
       this.$router.push({ name: 'Tasks' })
+    },
+    async filterType () {
+      this.type = event.target.value
+    }
+  },
+  computed: {
+    uniqueItemsList: function () {
+      const types = []
+      this.tasks.forEach(task => {
+        if (!types.includes(task.type)) {
+          types.push(task.type)
+        }
+      })
+      return types
     }
   }
 }

@@ -32,6 +32,15 @@ li {
   padding: 10px 10px;
   transition: all 0.3s ease;
 }
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  max-width: 1280px;
+  margin: 60px auto 0 auto;
+}
 .container {
   max-width: 100%;
   padding: 20px;
@@ -41,15 +50,16 @@ li {
 }
 .task-list {
   display: flex;
+  justify-content: space-between;
 }
 .task-item {
   display: block;
   background: #fff;
-  width: 28%;
+  width: calc(33% - 30px);
   min-height: 250px;
   height: auto;
   border-radius: 0 0 4px 4px;
-  margin: 1.2%;
+  margin: 15px;
   text-align: left;
   line-height: 27px;
   cursor: pointer;
@@ -136,16 +146,10 @@ li {
 .error {
   opacity: 1;
 }
-.flip-enter-active {
-  transition: all 0.4s ease;
-}
-.flip-leave-active {
-  display: none;
-}
-.flip-enter,
-.flip-leave {
-  transform: rotateY(180deg);
-  opacity: 0;
+.sort-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
 }
 /* Form */
 .task-form {
