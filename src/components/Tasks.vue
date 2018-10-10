@@ -28,14 +28,13 @@
               <router-link v-bind:to="{ name: 'EditTask', params: { id: task._id } }">
                 <span class="edit-icon"></span>
               </router-link>
+              <a href="#" @click="deleteTask(task._id)" class="delete-task"><span class="delete-icon"></span></a>
             </div>
             <div class="task-item-content">
               <h2 class="task-name">{{ task.title }}</h2>
-              <p class="task-description">{{ task.description }}</p>
               <span class="task-status">Status: {{ task.status }}</span>
+              <router-link v-bind:to="{ name: 'Task', params: { id: task._id } }">More info</router-link>
             </div>
-            <a href="#" @click="deleteTask(task._id)" class="delete-task"><span class="delete-icon"></span></a>
-            <div id="task-modal">This is a modal</div>  
           </li>
           </ul>
         </div>
@@ -126,7 +125,6 @@
           </ul>
         </div>
       </div>
-
     </div>
     <div v-else>
       There are no tasks.. Lets add one now <br /><br />

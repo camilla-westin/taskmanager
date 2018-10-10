@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Tasks from '@/components/Tasks'
 import NewTask from '@/components/NewTask'
 import EditTask from '@/components/EditTask'
+import Task from '@/components/Task'
 
 Vue.use(Router)
 
@@ -20,9 +21,14 @@ export default new Router({
       component: NewTask
     },
     {
-      path: '/tasks/:id',
+      path: '/tasks/edit/:id',
       name: 'EditTask',
       component: EditTask
+    },
+    {
+      path: '/tasks/task/:id',
+      name: 'Task',
+      component: Task
     }
   ]
 })

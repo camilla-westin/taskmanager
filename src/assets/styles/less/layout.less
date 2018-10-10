@@ -101,6 +101,10 @@ body {
     box-shadow: 0 2px 0 rgba(0,0,0,0.06);
     will-change: transform;
 
+    &:hover{
+      transform: scale(1.1);
+    }
+
     .task-item-head {
       background: #36495D;
       color: white;
@@ -147,6 +151,10 @@ body {
       }
     }
 
+    .task-description {
+      display: none;
+    }
+
     &.Research {
       .task-item-head {
         background: #7612a8;
@@ -179,22 +187,9 @@ body {
     top: 10px;
   }
 
-  .task-item {
-    &:hover{
-      transform: scale(1.1);
-    }
-  }
-
   .task-name {
     font-size: 18px;
     margin: 30px 0 15px 0;
-  }
-
-  .task-description {
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.3;
-    display: none;
   }
 
   .task-type {
@@ -225,6 +220,44 @@ body {
     label {
       font-weight: 600;
       padding: 6px;
+    }
+  }
+
+  /* Modal */
+
+  #taskModal {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 100%;
+    background: white;
+    border-left: 2px solid #47B784;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 30px;
+      width: 100%;
+      background: #47B784;
+      padding: 10px;
+
+      .btn-close {
+        position: absolute;
+        top: 7px;
+        left: 10px;
+      }
+    }
+
+    .task-description {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.3;
     }
   }
 

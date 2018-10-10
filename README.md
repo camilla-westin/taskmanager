@@ -41,5 +41,5 @@ npm start
 ## Start mongodb shell (any folder)
 mongo
 
-## Start mongo db (any folder I think?)
+## Start mongo db ## In server folder
 mongod
