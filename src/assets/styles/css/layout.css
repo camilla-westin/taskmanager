@@ -182,6 +182,24 @@ li {
   font-weight: 600;
   padding: 6px;
 }
+/* Single task */
+.task-single .type {
+  height: 30px;
+  padding: 20px;
+  color: #fff;
+}
+.task-single .type.Research {
+  background: #7612a8;
+}
+.task-single .type.Development {
+  background: #0f64aa;
+}
+.task-single .type.Design {
+  background: #ff7b0f;
+}
+.task-single .type.Editorial {
+  background: #36495D;
+}
 /* Modal */
 #taskModal {
   position: fixed;

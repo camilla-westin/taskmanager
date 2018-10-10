@@ -1,5 +1,6 @@
 <template>
   <div class="tasks">
+    <img class="logo" src="../assets/logo.png">
     <h1>Simple task manager</h1>
     <div v-if="tasks.length > 0" class="tasks-wrap">
       <div>
@@ -12,7 +13,6 @@
           <option v-for="task in uniqueItemsList" :key="task.type">{{ task }}</option>
         </select>
       </div>
-
       <div class="board">
         <div class="todo-column board-column">
           <h2>To do</h2>

@@ -1,10 +1,12 @@
-<template>
+<template id="task-single-page">
   <div class="tasks">
-    <div class="task">
-    <h2>{{ this.title }}</h2>
-    <div class="task-status">{{ this.status }}</div>
-    <div class="task-description">{{ this.description }}</div>
-    </div>
+    <router-link v-bind:to="{ name: 'Tasks' }">Back</router-link>
+    <div class="task-single">
+      <div class="type" v-bind:class="[ this.type ]">{{ this.type }}</div>
+        <h2>{{ this.title }}</h2>
+        <div class="task-status">{{ this.status }}</div>
+        <div class="task-description">{{ this.description }}</div>
+      </div>
   </div>
 </template>
 <script>
