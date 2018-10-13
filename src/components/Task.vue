@@ -1,6 +1,6 @@
 <template id="task-single-page">
   <div class="tasks">
-    <router-link v-bind:to="{ name: 'Tasks' }">Back</router-link>
+    <router-link class="btn-back" v-bind:to="{ name: 'Tasks' }"><span class="back-icon"></span>Back</router-link>
     <div class="task-single">
       <div class="type" v-bind:class="[ this.type ]">{{ this.type }}</div>
         <h2>{{ this.title }}</h2>

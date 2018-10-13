@@ -1,6 +1,6 @@
 <template>
   <div class="tasks">
-    <router-link v-bind:to="{ name: 'Tasks' }">Back</router-link>
+    <router-link class="btn-back" v-bind:to="{ name: 'Tasks' }"><span class="back-icon"></span>Back</router-link>
     <h1>Add Task</h1>
       <div class="form">
         <div>

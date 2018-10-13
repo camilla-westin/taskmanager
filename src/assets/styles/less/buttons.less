@@ -1,0 +1,73 @@
+@import 'variables.less';
+
+button {
+  border-radius: 5px;
+  border: 1px solid #87cb84;
+  background-color: #87cb84;
+  padding: 8px 15px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #70a66f;
+}
+
+.btn {
+  background: @green;
+  border-radius: 7px;
+  padding: 10px 20px;
+  color: @lighttext;
+  font-weight: 600;
+  padding: 10px 45px 10px 20px;
+  position: relative;
+  transition: background .2s ease-in;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: @darkgreen;
+  }
+}
+
+.btn-back {
+  text-decoration: none;
+  background: @green;
+  border-radius: 7px;
+  padding: 10px 20px;
+  color: @lighttext;
+  font-weight: 600;
+  padding: 10px 20px 10px 45px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  transition: background .2s ease-in;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: @darkgreen;
+  }
+}
+
+.btn-update {
+  text-decoration: none;
+  background: @green;
+  border-radius: 7px;
+  padding: 10px 20px;
+  color: @lighttext;
+  font-weight: 600;
+  padding: 10px 20px;
+  width: 405px;
+  transition: background .2s ease-in;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: @darkgreen;
+  }
+}

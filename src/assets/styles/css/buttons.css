@@ -1,0 +1,63 @@
+button {
+  border-radius: 5px;
+  border: 1px solid #87cb84;
+  background-color: #87cb84;
+  padding: 8px 15px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: #70a66f;
+}
+.btn {
+  background: #47B784;
+  border-radius: 7px;
+  padding: 10px 20px;
+  color: #f2f2f2;
+  font-weight: 600;
+  padding: 10px 45px 10px 20px;
+  position: relative;
+  transition: background 0.2s ease-in;
+}
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background: #348e64;
+}
+.btn-back {
+  text-decoration: none;
+  background: #47B784;
+  border-radius: 7px;
+  padding: 10px 20px;
+  color: #f2f2f2;
+  font-weight: 600;
+  padding: 10px 20px 10px 45px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  transition: background 0.2s ease-in;
+}
+.btn-back:hover,
+.btn-back:focus,
+.btn-back:active {
+  background: #348e64;
+}
+.btn-update {
+  text-decoration: none;
+  background: #47B784;
+  border-radius: 7px;
+  color: #f2f2f2;
+  font-weight: 600;
+  padding: 10px 20px;
+  width: 405px;
+  transition: background 0.2s ease-in;
+}
+.btn-update:hover,
+.btn-update:focus,
+.btn-update:active {
+  background: #348e64;
+}

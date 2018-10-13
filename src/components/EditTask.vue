@@ -1,6 +1,6 @@
 <template>
   <div class="tasks">
-    <router-link v-bind:to="{ name: 'Tasks' }">Back</router-link>
+    <router-link class="btn-back" v-bind:to="{ name: 'Tasks' }"><span class="back-icon"></span>Back</router-link>
     <h1>Edit task</h1>
       <div class="form">
         <div>
@@ -25,7 +25,7 @@
           <option value="Done">Done</option>
         </select>
         <div>
-          <button class="app_post_btn" @click="updateTask">Update</button>
+          <button class="btn-update" @click="updateTask">Update</button>
         </div>
       </div>
   </div>
@@ -69,26 +69,3 @@ export default {
   }
 }
 </script>
-<style type="text/css">
-.form input, .form textarea {
-  width: 500px;
-  padding: 10px;
-  border: 1px solid #e0dede;
-  outline: none;
-  font-size: 12px;
-}
-.form div {
-  margin: 20px;
-}
-.app_post_btn {
-  background: #4d7ef7;
-  color: #fff;
-  padding: 10px 80px;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
-  width: 520px;
-  border: none;
-  cursor: pointer;
-}
-</style>

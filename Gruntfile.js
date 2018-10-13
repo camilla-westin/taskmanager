@@ -5,7 +5,7 @@ module.exports = function(grunt) {
       "css":
 			{
 			    files: "src/assets/styles/less/**/*.less",
-			    tasks: 'styles'
+			    tasks: "styles"
 			}
     },
     less:
@@ -30,6 +30,9 @@ module.exports = function(grunt) {
 			  files:
 				{
 					"src/assets/styles/css/layout.css": "src/assets/styles/less/layout.less",
+          "src/assets/styles/css/icons.css": "src/assets/styles/less/icons.less",
+          "src/assets/styles/css/buttons.css": "src/assets/styles/less/buttons.less",
+          "src/assets/styles/css/taskmodal.css": "src/assets/styles/less/taskmodal.less"
 				}
 			}
 		},
@@ -56,7 +59,14 @@ module.exports = function(grunt) {
 			{
 			  files:
 				{
-				  'src/assets/styles/main.min.css':['src/assets/styles/css/layout.css']
+				  "src/assets/styles/main.min.css":
+          [
+            "src/assets/styles/css/normalize.css",
+            "src/assets/styles/css/layout.css",
+            "src/assets/styles/css/icons.css",
+            "src/assets/styles/css/buttons.css",
+            "src/assets/styles/css/taskmodal.css"
+          ]
 				}
 			}
 		}
